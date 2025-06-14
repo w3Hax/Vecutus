@@ -32,3 +32,10 @@ function github_theme_updates_check($transient) {
     
     return $transient;
 }
+add_action('admin_notices', function() {
+    $theme = wp_get_theme();
+    echo '<div class="notice notice-info"><pre>';
+    echo 'Theme Slug: ' . $theme->get_template() . "\n";
+    echo 'Current Version: ' . $theme->get('Version') . "\n";
+    echo '</pre></div>';
+});
